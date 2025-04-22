@@ -1,0 +1,762 @@
+[
+  {
+    "name": "Nhân Giới",
+    "description": "Thế giới của nhân loại đông đúc, hoạt động xã hội phong phú.",
+    "type": "giới",
+    "regions": [
+      {
+        "name": "Châu Nhất",
+        "cities": [
+          {
+            "name": "Thành Nhất",
+            "description": "Thành Thành Nhất thuộc Châu Nhất – Nhân Giới"
+          },
+          {
+            "name": "Thành Nhị",
+            "description": "Thành Thành Nhị thuộc Châu Nhất – Nhân Giới"
+          },
+          {
+            "name": "Thành Tam",
+            "description": "Thành Thành Tam thuộc Châu Nhất – Nhân Giới"
+          }
+        ]
+      },
+      {
+        "name": "Châu Nhị",
+        "cities": [
+          {
+            "name": "Thành Nhất",
+            "description": "Thành Thành Nhất thuộc Châu Nhị – Nhân Giới"
+          },
+          {
+            "name": "Thành Nhị",
+            "description": "Thành Thành Nhị thuộc Châu Nhị – Nhân Giới"
+          },
+          {
+            "name": "Thành Tam",
+            "description": "Thành Thành Tam thuộc Châu Nhị – Nhân Giới"
+          }
+        ]
+      },
+      {
+        "name": "Châu Tam",
+        "cities": [
+          {
+            "name": "Thành Nhất",
+            "description": "Thành Thành Nhất thuộc Châu Tam – Nhân Giới"
+          },
+          {
+            "name": "Thành Nhị",
+            "description": "Thành Thành Nhị thuộc Châu Tam – Nhân Giới"
+          },
+          {
+            "name": "Thành Tam",
+            "description": "Thành Thành Tam thuộc Châu Tam – Nhân Giới"
+          }
+        ]
+      },
+      {
+        "name": "Châu Tứ",
+        "cities": [
+          {
+            "name": "Thành Nhất",
+            "description": "Thành Thành Nhất thuộc Châu Tứ – Nhân Giới"
+          },
+          {
+            "name": "Thành Nhị",
+            "description": "Thành Thành Nhị thuộc Châu Tứ – Nhân Giới"
+          },
+          {
+            "name": "Thành Tam",
+            "description": "Thành Thành Tam thuộc Châu Tứ – Nhân Giới"
+          }
+        ]
+      },
+      {
+        "name": "Châu Ngũ",
+        "cities": [
+          {
+            "name": "Thành Nhất",
+            "description": "Thành Thành Nhất thuộc Châu Ngũ – Nhân Giới"
+          },
+          {
+            "name": "Thành Nhị",
+            "description": "Thành Thành Nhị thuộc Châu Ngũ – Nhân Giới"
+          },
+          {
+            "name": "Thành Tam",
+            "description": "Thành Thành Tam thuộc Châu Ngũ – Nhân Giới"
+          }
+        ]
+      },
+      {
+        "name": "Châu Lục",
+        "cities": [
+          {
+            "name": "Thành Nhất",
+            "description": "Thành Thành Nhất thuộc Châu Lục – Nhân Giới"
+          },
+          {
+            "name": "Thành Nhị",
+            "description": "Thành Thành Nhị thuộc Châu Lục – Nhân Giới"
+          },
+          {
+            "name": "Thành Tam",
+            "description": "Thành Thành Tam thuộc Châu Lục – Nhân Giới"
+          }
+        ]
+      },
+      {
+        "name": "Châu Thất",
+        "cities": [
+          {
+            "name": "Thành Nhất",
+            "description": "Thành Thành Nhất thuộc Châu Thất – Nhân Giới"
+          },
+          {
+            "name": "Thành Nhị",
+            "description": "Thành Thành Nhị thuộc Châu Thất – Nhân Giới"
+          },
+          {
+            "name": "Thành Tam",
+            "description": "Thành Thành Tam thuộc Châu Thất – Nhân Giới"
+          }
+        ]
+      },
+      {
+        "name": "Châu Bát",
+        "cities": [
+          {
+            "name": "Thành Nhất",
+            "description": "Thành Thành Nhất thuộc Châu Bát – Nhân Giới"
+          },
+          {
+            "name": "Thành Nhị",
+            "description": "Thành Thành Nhị thuộc Châu Bát – Nhân Giới"
+          },
+          {
+            "name": "Thành Tam",
+            "description": "Thành Thành Tam thuộc Châu Bát – Nhân Giới"
+          }
+        ]
+      },
+      {
+        "name": "Châu Cửu",
+        "cities": [
+          {
+            "name": "Thành Nhất",
+            "description": "Thành Thành Nhất thuộc Châu Cửu – Nhân Giới"
+          },
+          {
+            "name": "Thành Nhị",
+            "description": "Thành Thành Nhị thuộc Châu Cửu – Nhân Giới"
+          },
+          {
+            "name": "Thành Tam",
+            "description": "Thành Thành Tam thuộc Châu Cửu – Nhân Giới"
+          }
+        ]
+      },
+      {
+        "name": "Châu Thập",
+        "cities": [
+          {
+            "name": "Thành Nhất",
+            "description": "Thành Thành Nhất thuộc Châu Thập – Nhân Giới"
+          },
+          {
+            "name": "Thành Nhị",
+            "description": "Thành Thành Nhị thuộc Châu Thập – Nhân Giới"
+          },
+          {
+            "name": "Thành Tam",
+            "description": "Thành Thành Tam thuộc Châu Thập – Nhân Giới"
+          }
+        ]
+      },
+      {
+        "name": "Châu Thập Nhất",
+        "cities": [
+          {
+            "name": "Thành Nhất",
+            "description": "Thành Thành Nhất thuộc Châu Thập Nhất – Nhân Giới"
+          },
+          {
+            "name": "Thành Nhị",
+            "description": "Thành Thành Nhị thuộc Châu Thập Nhất – Nhân Giới"
+          },
+          {
+            "name": "Thành Tam",
+            "description": "Thành Thành Tam thuộc Châu Thập Nhất – Nhân Giới"
+          }
+        ]
+      },
+      {
+        "name": "Châu Thập Nhị",
+        "cities": [
+          {
+            "name": "Thành Nhất",
+            "description": "Thành Thành Nhất thuộc Châu Thập Nhị – Nhân Giới"
+          },
+          {
+            "name": "Thành Nhị",
+            "description": "Thành Thành Nhị thuộc Châu Thập Nhị – Nhân Giới"
+          },
+          {
+            "name": "Thành Tam",
+            "description": "Thành Thành Tam thuộc Châu Thập Nhị – Nhân Giới"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Linh Giới",
+    "description": "Thế giới linh căn, nơi cư trú của linh thú và thảo mộc thần kỳ.",
+    "type": "giới",
+    "regions": [
+      {
+        "name": "Châu Nhất",
+        "cities": [
+          {
+            "name": "Sơn cốc Nhất",
+            "description": "Sơn cốc Sơn cốc Nhất thuộc Châu Nhất – Linh Giới"
+          },
+          {
+            "name": "Sơn cốc Nhị",
+            "description": "Sơn cốc Sơn cốc Nhị thuộc Châu Nhất – Linh Giới"
+          },
+          {
+            "name": "Sơn cốc Tam",
+            "description": "Sơn cốc Sơn cốc Tam thuộc Châu Nhất – Linh Giới"
+          }
+        ]
+      },
+      {
+        "name": "Châu Nhị",
+        "cities": [
+          {
+            "name": "Sơn cốc Nhất",
+            "description": "Sơn cốc Sơn cốc Nhất thuộc Châu Nhị – Linh Giới"
+          },
+          {
+            "name": "Sơn cốc Nhị",
+            "description": "Sơn cốc Sơn cốc Nhị thuộc Châu Nhị – Linh Giới"
+          },
+          {
+            "name": "Sơn cốc Tam",
+            "description": "Sơn cốc Sơn cốc Tam thuộc Châu Nhị – Linh Giới"
+          }
+        ]
+      },
+      {
+        "name": "Châu Tam",
+        "cities": [
+          {
+            "name": "Sơn cốc Nhất",
+            "description": "Sơn cốc Sơn cốc Nhất thuộc Châu Tam – Linh Giới"
+          },
+          {
+            "name": "Sơn cốc Nhị",
+            "description": "Sơn cốc Sơn cốc Nhị thuộc Châu Tam – Linh Giới"
+          },
+          {
+            "name": "Sơn cốc Tam",
+            "description": "Sơn cốc Sơn cốc Tam thuộc Châu Tam – Linh Giới"
+          }
+        ]
+      },
+      {
+        "name": "Châu Tứ",
+        "cities": [
+          {
+            "name": "Sơn cốc Nhất",
+            "description": "Sơn cốc Sơn cốc Nhất thuộc Châu Tứ – Linh Giới"
+          },
+          {
+            "name": "Sơn cốc Nhị",
+            "description": "Sơn cốc Sơn cốc Nhị thuộc Châu Tứ – Linh Giới"
+          },
+          {
+            "name": "Sơn cốc Tam",
+            "description": "Sơn cốc Sơn cốc Tam thuộc Châu Tứ – Linh Giới"
+          }
+        ]
+      },
+      {
+        "name": "Châu Ngũ",
+        "cities": [
+          {
+            "name": "Sơn cốc Nhất",
+            "description": "Sơn cốc Sơn cốc Nhất thuộc Châu Ngũ – Linh Giới"
+          },
+          {
+            "name": "Sơn cốc Nhị",
+            "description": "Sơn cốc Sơn cốc Nhị thuộc Châu Ngũ – Linh Giới"
+          },
+          {
+            "name": "Sơn cốc Tam",
+            "description": "Sơn cốc Sơn cốc Tam thuộc Châu Ngũ – Linh Giới"
+          }
+        ]
+      },
+      {
+        "name": "Châu Lục",
+        "cities": [
+          {
+            "name": "Sơn cốc Nhất",
+            "description": "Sơn cốc Sơn cốc Nhất thuộc Châu Lục – Linh Giới"
+          },
+          {
+            "name": "Sơn cốc Nhị",
+            "description": "Sơn cốc Sơn cốc Nhị thuộc Châu Lục – Linh Giới"
+          },
+          {
+            "name": "Sơn cốc Tam",
+            "description": "Sơn cốc Sơn cốc Tam thuộc Châu Lục – Linh Giới"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Ma Giới",
+    "description": "Thế giới ma đạo, đầy nguy hiểm và quyền lực tăm tối.",
+    "type": "giới",
+    "regions": [
+      {
+        "name": "Châu Nhất",
+        "cities": [
+          {
+            "name": "Lãnh địa Nhất",
+            "description": "Lãnh địa Lãnh địa Nhất thuộc Châu Nhất – Ma Giới"
+          },
+          {
+            "name": "Lãnh địa Nhị",
+            "description": "Lãnh địa Lãnh địa Nhị thuộc Châu Nhất – Ma Giới"
+          },
+          {
+            "name": "Lãnh địa Tam",
+            "description": "Lãnh địa Lãnh địa Tam thuộc Châu Nhất – Ma Giới"
+          }
+        ]
+      },
+      {
+        "name": "Châu Nhị",
+        "cities": [
+          {
+            "name": "Lãnh địa Nhất",
+            "description": "Lãnh địa Lãnh địa Nhất thuộc Châu Nhị – Ma Giới"
+          },
+          {
+            "name": "Lãnh địa Nhị",
+            "description": "Lãnh địa Lãnh địa Nhị thuộc Châu Nhị – Ma Giới"
+          },
+          {
+            "name": "Lãnh địa Tam",
+            "description": "Lãnh địa Lãnh địa Tam thuộc Châu Nhị – Ma Giới"
+          }
+        ]
+      },
+      {
+        "name": "Châu Tam",
+        "cities": [
+          {
+            "name": "Lãnh địa Nhất",
+            "description": "Lãnh địa Lãnh địa Nhất thuộc Châu Tam – Ma Giới"
+          },
+          {
+            "name": "Lãnh địa Nhị",
+            "description": "Lãnh địa Lãnh địa Nhị thuộc Châu Tam – Ma Giới"
+          },
+          {
+            "name": "Lãnh địa Tam",
+            "description": "Lãnh địa Lãnh địa Tam thuộc Châu Tam – Ma Giới"
+          }
+        ]
+      },
+      {
+        "name": "Châu Tứ",
+        "cities": [
+          {
+            "name": "Lãnh địa Nhất",
+            "description": "Lãnh địa Lãnh địa Nhất thuộc Châu Tứ – Ma Giới"
+          },
+          {
+            "name": "Lãnh địa Nhị",
+            "description": "Lãnh địa Lãnh địa Nhị thuộc Châu Tứ – Ma Giới"
+          },
+          {
+            "name": "Lãnh địa Tam",
+            "description": "Lãnh địa Lãnh địa Tam thuộc Châu Tứ – Ma Giới"
+          }
+        ]
+      },
+      {
+        "name": "Châu Ngũ",
+        "cities": [
+          {
+            "name": "Lãnh địa Nhất",
+            "description": "Lãnh địa Lãnh địa Nhất thuộc Châu Ngũ – Ma Giới"
+          },
+          {
+            "name": "Lãnh địa Nhị",
+            "description": "Lãnh địa Lãnh địa Nhị thuộc Châu Ngũ – Ma Giới"
+          },
+          {
+            "name": "Lãnh địa Tam",
+            "description": "Lãnh địa Lãnh địa Tam thuộc Châu Ngũ – Ma Giới"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Tiên Giới",
+    "description": "Thế giới cao tầng, nơi cư ngụ của các tiên nhân đắc đạo.",
+    "type": "giới",
+    "regions": [
+      {
+        "name": "Châu Nhất",
+        "cities": [
+          {
+            "name": "Thiên cung Nhất",
+            "description": "Thiên cung Thiên cung Nhất thuộc Châu Nhất – Tiên Giới"
+          },
+          {
+            "name": "Thiên cung Nhị",
+            "description": "Thiên cung Thiên cung Nhị thuộc Châu Nhất – Tiên Giới"
+          },
+          {
+            "name": "Thiên cung Tam",
+            "description": "Thiên cung Thiên cung Tam thuộc Châu Nhất – Tiên Giới"
+          }
+        ]
+      },
+      {
+        "name": "Châu Nhị",
+        "cities": [
+          {
+            "name": "Thiên cung Nhất",
+            "description": "Thiên cung Thiên cung Nhất thuộc Châu Nhị – Tiên Giới"
+          },
+          {
+            "name": "Thiên cung Nhị",
+            "description": "Thiên cung Thiên cung Nhị thuộc Châu Nhị – Tiên Giới"
+          },
+          {
+            "name": "Thiên cung Tam",
+            "description": "Thiên cung Thiên cung Tam thuộc Châu Nhị – Tiên Giới"
+          }
+        ]
+      },
+      {
+        "name": "Châu Tam",
+        "cities": [
+          {
+            "name": "Thiên cung Nhất",
+            "description": "Thiên cung Thiên cung Nhất thuộc Châu Tam – Tiên Giới"
+          },
+          {
+            "name": "Thiên cung Nhị",
+            "description": "Thiên cung Thiên cung Nhị thuộc Châu Tam – Tiên Giới"
+          },
+          {
+            "name": "Thiên cung Tam",
+            "description": "Thiên cung Thiên cung Tam thuộc Châu Tam – Tiên Giới"
+          }
+        ]
+      },
+      {
+        "name": "Châu Tứ",
+        "cities": [
+          {
+            "name": "Thiên cung Nhất",
+            "description": "Thiên cung Thiên cung Nhất thuộc Châu Tứ – Tiên Giới"
+          },
+          {
+            "name": "Thiên cung Nhị",
+            "description": "Thiên cung Thiên cung Nhị thuộc Châu Tứ – Tiên Giới"
+          },
+          {
+            "name": "Thiên cung Tam",
+            "description": "Thiên cung Thiên cung Tam thuộc Châu Tứ – Tiên Giới"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Huyền Giới",
+    "description": "Thế giới cổ xưa chứa nhiều bí mật và tàn tích viễn cổ.",
+    "type": "giới",
+    "regions": [
+      {
+        "name": "Châu Nhất",
+        "cities": [
+          {
+            "name": "Cổ vực Nhất",
+            "description": "Cổ vực Cổ vực Nhất thuộc Châu Nhất – Huyền Giới"
+          },
+          {
+            "name": "Cổ vực Nhị",
+            "description": "Cổ vực Cổ vực Nhị thuộc Châu Nhất – Huyền Giới"
+          },
+          {
+            "name": "Cổ vực Tam",
+            "description": "Cổ vực Cổ vực Tam thuộc Châu Nhất – Huyền Giới"
+          }
+        ]
+      },
+      {
+        "name": "Châu Nhị",
+        "cities": [
+          {
+            "name": "Cổ vực Nhất",
+            "description": "Cổ vực Cổ vực Nhất thuộc Châu Nhị – Huyền Giới"
+          },
+          {
+            "name": "Cổ vực Nhị",
+            "description": "Cổ vực Cổ vực Nhị thuộc Châu Nhị – Huyền Giới"
+          },
+          {
+            "name": "Cổ vực Tam",
+            "description": "Cổ vực Cổ vực Tam thuộc Châu Nhị – Huyền Giới"
+          }
+        ]
+      },
+      {
+        "name": "Châu Tam",
+        "cities": [
+          {
+            "name": "Cổ vực Nhất",
+            "description": "Cổ vực Cổ vực Nhất thuộc Châu Tam – Huyền Giới"
+          },
+          {
+            "name": "Cổ vực Nhị",
+            "description": "Cổ vực Cổ vực Nhị thuộc Châu Tam – Huyền Giới"
+          },
+          {
+            "name": "Cổ vực Tam",
+            "description": "Cổ vực Cổ vực Tam thuộc Châu Tam – Huyền Giới"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "U Minh Giới",
+    "description": "Thế giới của âm linh và oan hồn vất vưởng.",
+    "type": "giới",
+    "regions": [
+      {
+        "name": "Châu Nhất",
+        "cities": [
+          {
+            "name": "Âm thành Nhất",
+            "description": "Âm thành Âm thành Nhất thuộc Châu Nhất – U Minh Giới"
+          },
+          {
+            "name": "Âm thành Nhị",
+            "description": "Âm thành Âm thành Nhị thuộc Châu Nhất – U Minh Giới"
+          },
+          {
+            "name": "Âm thành Tam",
+            "description": "Âm thành Âm thành Tam thuộc Châu Nhất – U Minh Giới"
+          }
+        ]
+      },
+      {
+        "name": "Châu Nhị",
+        "cities": [
+          {
+            "name": "Âm thành Nhất",
+            "description": "Âm thành Âm thành Nhất thuộc Châu Nhị – U Minh Giới"
+          },
+          {
+            "name": "Âm thành Nhị",
+            "description": "Âm thành Âm thành Nhị thuộc Châu Nhị – U Minh Giới"
+          },
+          {
+            "name": "Âm thành Tam",
+            "description": "Âm thành Âm thành Tam thuộc Châu Nhị – U Minh Giới"
+          }
+        ]
+      },
+      {
+        "name": "Châu Tam",
+        "cities": [
+          {
+            "name": "Âm thành Nhất",
+            "description": "Âm thành Âm thành Nhất thuộc Châu Tam – U Minh Giới"
+          },
+          {
+            "name": "Âm thành Nhị",
+            "description": "Âm thành Âm thành Nhị thuộc Châu Tam – U Minh Giới"
+          },
+          {
+            "name": "Âm thành Tam",
+            "description": "Âm thành Âm thành Tam thuộc Châu Tam – U Minh Giới"
+          }
+        ]
+      },
+      {
+        "name": "Châu Tứ",
+        "cities": [
+          {
+            "name": "Âm thành Nhất",
+            "description": "Âm thành Âm thành Nhất thuộc Châu Tứ – U Minh Giới"
+          },
+          {
+            "name": "Âm thành Nhị",
+            "description": "Âm thành Âm thành Nhị thuộc Châu Tứ – U Minh Giới"
+          },
+          {
+            "name": "Âm thành Tam",
+            "description": "Âm thành Âm thành Tam thuộc Châu Tứ – U Minh Giới"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Hỏa Vực",
+    "description": "Khu vực luyện hỏa và rèn đan, khí hậu cực đoan.",
+    "type": "giới",
+    "regions": [
+      {
+        "name": "Châu Nhất",
+        "cities": [
+          {
+            "name": "Liệt vực Nhất",
+            "description": "Liệt vực Liệt vực Nhất thuộc Châu Nhất – Hỏa Vực"
+          },
+          {
+            "name": "Liệt vực Nhị",
+            "description": "Liệt vực Liệt vực Nhị thuộc Châu Nhất – Hỏa Vực"
+          },
+          {
+            "name": "Liệt vực Tam",
+            "description": "Liệt vực Liệt vực Tam thuộc Châu Nhất – Hỏa Vực"
+          }
+        ]
+      },
+      {
+        "name": "Châu Nhị",
+        "cities": [
+          {
+            "name": "Liệt vực Nhất",
+            "description": "Liệt vực Liệt vực Nhất thuộc Châu Nhị – Hỏa Vực"
+          },
+          {
+            "name": "Liệt vực Nhị",
+            "description": "Liệt vực Liệt vực Nhị thuộc Châu Nhị – Hỏa Vực"
+          },
+          {
+            "name": "Liệt vực Tam",
+            "description": "Liệt vực Liệt vực Tam thuộc Châu Nhị – Hỏa Vực"
+          }
+        ]
+      },
+      {
+        "name": "Châu Tam",
+        "cities": [
+          {
+            "name": "Liệt vực Nhất",
+            "description": "Liệt vực Liệt vực Nhất thuộc Châu Tam – Hỏa Vực"
+          },
+          {
+            "name": "Liệt vực Nhị",
+            "description": "Liệt vực Liệt vực Nhị thuộc Châu Tam – Hỏa Vực"
+          },
+          {
+            "name": "Liệt vực Tam",
+            "description": "Liệt vực Liệt vực Tam thuộc Châu Tam – Hỏa Vực"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Băng Hà Cảnh",
+    "description": "Thế giới lạnh giá, nơi băng tuyết tồn tại vĩnh cửu.",
+    "type": "giới",
+    "regions": [
+      {
+        "name": "Châu Nhất",
+        "cities": [
+          {
+            "name": "Hàn cung Nhất",
+            "description": "Hàn cung Hàn cung Nhất thuộc Châu Nhất – Băng Hà Cảnh"
+          },
+          {
+            "name": "Hàn cung Nhị",
+            "description": "Hàn cung Hàn cung Nhị thuộc Châu Nhất – Băng Hà Cảnh"
+          },
+          {
+            "name": "Hàn cung Tam",
+            "description": "Hàn cung Hàn cung Tam thuộc Châu Nhất – Băng Hà Cảnh"
+          }
+        ]
+      },
+      {
+        "name": "Châu Nhị",
+        "cities": [
+          {
+            "name": "Hàn cung Nhất",
+            "description": "Hàn cung Hàn cung Nhất thuộc Châu Nhị – Băng Hà Cảnh"
+          },
+          {
+            "name": "Hàn cung Nhị",
+            "description": "Hàn cung Hàn cung Nhị thuộc Châu Nhị – Băng Hà Cảnh"
+          },
+          {
+            "name": "Hàn cung Tam",
+            "description": "Hàn cung Hàn cung Tam thuộc Châu Nhị – Băng Hà Cảnh"
+          }
+        ]
+      },
+      {
+        "name": "Châu Tam",
+        "cities": [
+          {
+            "name": "Hàn cung Nhất",
+            "description": "Hàn cung Hàn cung Nhất thuộc Châu Tam – Băng Hà Cảnh"
+          },
+          {
+            "name": "Hàn cung Nhị",
+            "description": "Hàn cung Hàn cung Nhị thuộc Châu Tam – Băng Hà Cảnh"
+          },
+          {
+            "name": "Hàn cung Tam",
+            "description": "Hàn cung Hàn cung Tam thuộc Châu Tam – Băng Hà Cảnh"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Hỗn Độn",
+    "description": "Thế giới của thần tộc, tu vi cao nhất, ít người đặt chân đến.",
+    "type": "giới",
+    "regions": [
+      {
+        "name": "Châu Nhất",
+        "cities": [
+          {
+            "name": "Thần cảnh Nhất",
+            "description": "Thần cảnh Thần cảnh Nhất thuộc Châu Nhất – Hỗn Độn"
+          },
+          {
+            "name": "Thần cảnh Nhị",
+            "description": "Thần cảnh Thần cảnh Nhị thuộc Châu Nhất – Hỗn Độn"
+          },
+          {
+            "name": "Thần cảnh Tam",
+            "description": "Thần cảnh Thần cảnh Tam thuộc Châu Nhất – Hỗn Độn"
+          }
+        ]
+      }
+    ]
+  }
+]

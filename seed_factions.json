@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Thiên Kiếm Tông",
+    "level": "đại phái",
+    "origin": {
+      "world": "Tiên Giới",
+      "region": "Châu Nhất",
+      "city": "Thiên Cung Nhất"
+    },
+    "description": "Môn phái chuyên về kiếm đạo cổ truyền, truyền nhân của Kiếm Thánh.",
+    "emblem": "https://example.com/emblems/thienkiem.png",
+    "doctrine": "Kiếm tâm vô ngã – nhất kiếm phá vạn pháp"
+  },
+  {
+    "name": "Huyền Âm Cung",
+    "level": "đại phái",
+    "origin": {
+      "world": "U Minh Giới",
+      "region": "Châu Nhị",
+      "city": "Âm Thành Nhất"
+    },
+    "description": "Phái nữ tu quyền năng, sử dụng âm công và thuật mê hồn.",
+    "emblem": "https://example.com/emblems/huyenam.png",
+    "doctrine": "Âm dương hòa hợp – định tâm chế địch"
+  },
+  {
+    "name": "Linh Hoa Cốc",
+    "level": "trung phái",
+    "origin": {
+      "world": "Linh Giới",
+      "region": "Châu Tam",
+      "city": "Sơn Cốc Nhị"
+    },
+    "description": "Môn phái ôn hòa, giỏi luyện đan, chăm sóc linh thảo.",
+    "emblem": "https://example.com/emblems/linhhoa.png",
+    "doctrine": "Dưỡng sinh dưỡng khí – thiên nhiên tương trợ"
+  },
+  {
+    "name": "Xích Viêm Tông",
+    "level": "trung phái",
+    "origin": {
+      "world": "Hỏa Vực",
+      "region": "Châu Nhất",
+      "city": "Liệt Vực Tam"
+    },
+    "description": "Chuyên về hỏa pháp và luyện thể, tu sĩ cường tráng.",
+    "emblem": "https://example.com/emblems/xichviem.png",
+    "doctrine": "Hỏa đạo vô tận – thân thể thành pháp"
+  },
+  {
+    "name": "Ngạo Tuyết Phái",
+    "level": "tiểu phái",
+    "origin": {
+      "world": "Băng Hà Cảnh",
+      "region": "Châu Nhất",
+      "city": "Hàn Cung Nhị"
+    },
+    "description": "Nhỏ nhưng mạnh, nổi tiếng với tuyệt học băng kiếm.",
+    "emblem": "https://example.com/emblems/ngaotuyet.png",
+    "doctrine": "Tĩnh tâm như tuyết – nhất kích tất sát"
+  },
+  {
+    "name": "Hắc Phong Môn",
+    "level": "tiểu phái",
+    "origin": {
+      "world": "Ma Giới",
+      "region": "Châu Nhị",
+      "city": "Lãnh Địa Tam"
+    },
+    "description": "Phái tu ma độc lập, hoạt động trong bóng tối.",
+    "emblem": "https://example.com/emblems/hacphong.png",
+    "doctrine": "Ẩn mình trong bóng tối – tung đòn chí mạng"
+  }
+]
