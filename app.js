@@ -7,7 +7,6 @@ const mongoose = require('mongoose');
 dotenv.config();
 const app = express();
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
@@ -19,6 +18,9 @@ const chatRoutes = require('./routes/chat.route');
 const storyRoutes = require('./routes/story.route');
 const profileRoutes = require('./routes/profile.route');
 const feedRoutes = require('./routes/feed.route');
+const tuviRoutes = require('./routes/tuvi.route');
+const worldRoutes = require('./routes/world.route');
+const factionRoutes = require('./routes/faction.route');
 
 app.use('/auth', authRoutes);
 app.use('/npcs', npcRoutes);
@@ -27,6 +29,9 @@ app.use('/chat', chatRoutes);
 app.use('/stories', storyRoutes);
 app.use('/profile', profileRoutes);
 app.use('/feed', feedRoutes);
+app.use('/tuvi', tuviRoutes);
+app.use('/worlds', worldRoutes);
+app.use('/factions', factionRoutes);
 
 // Kết nối MongoDB
 mongoose.connect(process.env.MONGO_URI)
