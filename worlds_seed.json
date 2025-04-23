@@ -1,0 +1,208 @@
+[
+  {
+    "name": "Nhân Giới",
+    "type": "Nhân",
+    "description": "Thế giới đông dân nhất, nơi sinh sống của phàm nhân và các tu sĩ sơ cấp.",
+    "populationScale": "rất đông",
+    "averageTuVi": "Luyện Khí",
+    "regions": [
+      {
+        "name": "Đại Châu",
+        "cities": [
+          {
+            "name": "Trung Đô",
+            "description": "Kinh đô phồn thịnh của Nhân Giới",
+            "cityType": "thành"
+          },
+          {
+            "name": "Tiểu Lạc",
+            "description": "Làng quê thanh bình",
+            "cityType": "làng"
+          },
+          {
+            "name": "Thạch Ẩn",
+            "description": "Thành cổ ẩn mình giữa rừng sâu",
+            "cityType": "thành"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Linh Giới",
+    "type": "Linh",
+    "description": "Nơi tụ hội linh khí mạnh mẽ, sinh vật linh thiêng sinh sống.",
+    "populationScale": "vừa",
+    "averageTuVi": "Trúc Cơ",
+    "regions": [
+      {
+        "name": "Linh Châu",
+        "cities": [
+          {
+            "name": "Hoa Sơn Trấn",
+            "description": "Trấn nhỏ gần mạch linh khí",
+            "cityType": "làng"
+          },
+          {
+            "name": "Tịnh Uyển",
+            "description": "Nơi tu luyện lý tưởng",
+            "cityType": "hang ổ"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Ma Giới",
+    "type": "Ma",
+    "description": "Lãnh địa hỗn loạn, nơi những kẻ tu ma, tà đạo sinh sống.",
+    "populationScale": "đông",
+    "averageTuVi": "Kim Đan",
+    "regions": [
+      {
+        "name": "Hắc Châu",
+        "cities": [
+          {
+            "name": "U Minh Thành",
+            "description": "Thành trì ma khí dày đặc",
+            "cityType": "thành"
+          },
+          {
+            "name": "Huyết Đàm",
+            "description": "Hang ổ tà tu",
+            "cityType": "hang ổ"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Thần Giới",
+    "type": "Thần",
+    "description": "Giới cao tầng, ít người được đặt chân tới, tu vi rất cao.",
+    "populationScale": "rất ít",
+    "averageTuVi": "Hợp Thể",
+    "regions": [
+      {
+        "name": "Thiên Châu",
+        "cities": [
+          {
+            "name": "Thiên Phủ",
+            "description": "Nơi các thần sống",
+            "cityType": "thành"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Yêu Giới",
+    "type": "Yêu",
+    "description": "Lãnh thổ của yêu thú, nhiều tộc hóa hình.",
+    "populationScale": "vừa",
+    "averageTuVi": "Trúc Cơ",
+    "regions": [
+      {
+        "name": "Yêu Châu",
+        "cities": [
+          {
+            "name": "Lang Thôn",
+            "description": "Nơi tụ hội yêu tộc lang",
+            "cityType": "làng"
+          },
+          {
+            "name": "Xích Hồ",
+            "description": "Trấn yêu hồ canh giữ",
+            "cityType": "thành"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Quỷ Giới",
+    "type": "Ma",
+    "description": "Giới tối tăm, lạnh lẽo, nơi linh hồn vất vưởng tụ hội.",
+    "populationScale": "thưa thớt",
+    "averageTuVi": "Nguyên Anh",
+    "regions": [
+      {
+        "name": "Quỷ Châu",
+        "cities": [
+          {
+            "name": "Vong Hồn Thành",
+            "description": "Phủ quỷ nổi tiếng",
+            "cityType": "thành"
+          },
+          {
+            "name": "Địa Giới Cốc",
+            "description": "Hang ổ tà linh",
+            "cityType": "hang ổ"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Tiên Giới",
+    "type": "Thần",
+    "description": "Nơi các bậc đại năng ngộ đạo sinh sống.",
+    "populationScale": "rất ít",
+    "averageTuVi": "Đại Thừa",
+    "regions": [
+      {
+        "name": "Thanh Vân Châu",
+        "cities": [
+          {
+            "name": "Ngọc Thanh Thành",
+            "description": "Cảnh giới thuần khiết nhất",
+            "cityType": "thành"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Hải Giới",
+    "type": "Nhân",
+    "description": "Thế giới biển sâu, nơi sinh sống của hải tộc.",
+    "populationScale": "vừa",
+    "averageTuVi": "Luyện Khí",
+    "regions": [
+      {
+        "name": "Thủy Châu",
+        "cities": [
+          {
+            "name": "Long Vũ Cung",
+            "description": "Đế đô của hải long tộc",
+            "cityType": "thành"
+          },
+          {
+            "name": "San Hô Trấn",
+            "description": "Làng san hô dưới đáy biển",
+            "cityType": "làng"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Hỗn Độn Giới",
+    "type": "Hỗn Độn",
+    "description": "Nơi hỗn mang, lằn ranh giữa không gian và thời gian.",
+    "populationScale": "rất ít",
+    "averageTuVi": "Thiên Đạo",
+    "regions": [
+      {
+        "name": "Hỗn Giới Châu",
+        "cities": [
+          {
+            "name": "Thần Tộc Cổ Lĩnh",
+            "description": "Căn cứ của thần tộc",
+            "cityType": "thành"
+          }
+        ]
+      }
+    ]
+  }
+]

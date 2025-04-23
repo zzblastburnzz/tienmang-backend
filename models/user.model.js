@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   avatar: { type: String, default: '' },
   cover: { type: String, default: '' },
-  mood: { type: String, enum: ['happy', 'sad', 'neutral'], default: 'neutral' }
+  mood: { type: String, enum: ['happy', 'sad', 'neutral'], default: 'neutral' },
 
   realTuVi: { type: String, default: 'Phàm nhân' },
   showTuVi: { type: String, default: 'Ẩn' },

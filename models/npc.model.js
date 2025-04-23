@@ -1,27 +1,32 @@
 
 const mongoose = require('mongoose');
 
-const npcSchema = new mongoose.Schema({
-  username: { type: String, required: true, unique: true, trim: true },
-  avatar: String,
-  cover: String,
-  mood: { type: String, enum: ['happy', 'sad', 'neutral'], default: 'neutral' },
-  personality: { type: String, default: 'friendly' },
-  worldOrigin: { type: String, required: true },
-  bio: { type: String, default: '' },
-  friends: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]
+const memoryLogSchema = new mongoose.Schema({
+  event: String,
+  target: { type: mongoose.Schema.Types.ObjectId, ref: 'Npc' },
+  date: Date,
+  mood: String
+});
 
-  realTuVi: { type: String, default: 'Luyện Khí' },
-  showTuVi: { type: String, default: 'Luyện Khí' },
-  linhCan: { type: String, default: 'Hỏa' },
-  ngoTinh: { type: Number, default: 35 },
-  soThich: [String],
+const npcSchema = new mongoose.Schema({
+  name: String,
+  avatar: String,
   gioi: String,
   chau: String,
   thanh: String,
   monPhai: String,
-  anTuVi: { type: Boolean, default: false },
-  soGioBeQuan: { type: Number, default: 0 }
-}, { timestamps: true });
+  tuVi: String,
+  linhCan: String,
+  ngoTinh: Number,
+  soThich: [String],
+  tinhCach: String,
+  originWorld: String,
+  archetype: String,
+  currentRole: String,
+  isCore: Boolean,
+  roleScore: Number,
+  knownPeople: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Npc' }],
+  memoryLog: [memoryLogSchema]
+});
 
-module.exports = mongoose.model('NPC', npcSchema);
+module.exports = mongoose.model('Npc', npcSchema);
