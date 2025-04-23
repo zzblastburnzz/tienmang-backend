@@ -1,30 +1,25 @@
-
+// seeder_archetype_npcs.js
 const mongoose = require('mongoose');
-const fs = require('fs');
-const path = require('path');
-const Npc = require('./models/npc.model');
+const Npc = require('../models/npc.model');
+const { generateNpcArchetype } = require('../utils/generateNpcArchetype');
 
-require('dotenv').config();
+const seedArchetypeNpcs = async () => {
+  const baseNpcs = [
+    { name: 'Trần Nhị', username: 'tran.nhi', gioi: 'Nhân Giới', chau: 'Đông Châu', thanh: 'Phượng Thành' },
+    { name: 'Lý Tam', username: 'ly.tam', gioi: 'Nhân Giới', chau: 'Tây Châu', thanh: 'Hổ Thành' },
+    { name: 'Phạm Tứ', username: 'pham.tu', gioi: 'Linh Giới', chau: 'Nam Châu', thanh: 'Lan Thành' },
+    { name: 'Vũ Ngũ', username: 'vu.ngu', gioi: 'Yêu Giới', chau: 'Bắc Châu', thanh: 'Long Thành' },
+    { name: 'Đào Lục', username: 'dao.luc', gioi: 'Ma Giới', chau: 'Tây Châu', thanh: 'Diêm Thành' }
+  ];
 
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/tienmang';
+  const enrichedNpcs = baseNpcs.map(generateNpcArchetype);
+  await Npc.insertMany(enrichedNpcs);
+  console.log('✅ Đã seed NPC mẫu có nghề nghiệp và hành vi.');
+};
 
-async function seedArchetypeNpcs() {
-  try {
-    await mongoose.connect(MONGO_URI);
-    console.log('✅ Đã kết nối MongoDB');
-
-    const data = fs.readFileSync(path.join(__dirname, 'archetype_npcs.json'), 'utf-8');
-    const npcs = JSON.parse(data);
-
-    await Npc.deleteMany({ isCore: true }); // chỉ xóa NPC chủ lực nếu có
-    await Npc.insertMany(npcs);
-
-    console.log('✅ Đã import 50 NPC archetype thành công!');
-    process.exit(0);
-  } catch (err) {
-    console.error('❌ Lỗi khi import NPC:', err.message);
-    process.exit(1);
-  }
-}
-
-seedArchetypeNpcs();
+mongoose.connect('mongodb://localhost:27017/tienmang', { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(async () => {
+    await Npc.deleteMany({});
+    await seedArchetypeNpcs();
+    mongoose.disconnect();
+  });

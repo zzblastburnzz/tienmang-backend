@@ -1,25 +1,10 @@
-// chat.controller.js (tích hợp tạo Job từ chat)
+// chat.controller.js (nâng cấp phản hồi theo behavior)
 const Conversation = require('../models/conversation.model');
 const Message = require('../models/message.model');
 const NPC = require('../models/npc.model');
 const SocialLink = require('../models/sociallink.model');
 const { createJobFromChat } = require('../services/jobGeneratorFromChat');
-
-const generateAIReply = async (npcId, userId, npcName, userMessage) => {
-  const relationship = await SocialLink.findOne({ from: npcId, to: userId });
-  const score = relationship?.score || 50;
-
-  let moodPrefix = '';
-  if (score > 80) {
-    moodPrefix = `Bạn là người rất thân thiết với ${npcName}. Hãy nói chuyện như người bạn lâu năm, vui vẻ, ấm áp.`;
-  } else if (score < 50) {
-    moodPrefix = `${npcName} cảm thấy không thoải mái khi nói chuyện với người này. Hãy trả lời ngắn gọn, lạnh nhạt.`;
-  } else {
-    moodPrefix = `${npcName} không quá thân thiết cũng không quá xa cách. Hãy trả lời lịch sự, giữ khoảng cách.`;
-  }
-
-  return `(${npcName} 🤖): [${moodPrefix}] ${npcName} nghe ngươi nói "${userMessage}".`;
-};
+const { generateNpcReplyWithBehavior } = require('../utils/generateNpcReply');
 
 exports.startConversation = async (req, res) => {
   const { senderId, receiverId } = req.body;
@@ -57,9 +42,14 @@ exports.sendMessage = async (req, res) => {
     let responseMessages = [message];
 
     if (npcInfo) {
-      // Phản hồi AI tùy mood
-      const aiText = await generateAIReply(npcInfo._id, sender, npcInfo.username, text);
-      const aiMessage = await Message.create({ conversationId, sender: npcInfo._id, text: aiText });
+      // 🔥 Phản hồi theo behavior thay vì prompt cứng
+      const reply = generateNpcReplyWithBehavior({
+        name: npcInfo.name,
+        attitude: npcInfo.behavior?.attitude || 'hòa nhã',
+        role: npcInfo.role || '',
+        message: `Ngươi nói "${text}" sao?`
+      });
+      const aiMessage = await Message.create({ conversationId, sender: npcInfo._id, text: reply });
       responseMessages.push(aiMessage);
 
       // Tạo job từ nội dung chat (nếu có)

@@ -1,4 +1,4 @@
-
+// npc.model.js (đã nâng cấp: nghề nghiệp, vai trò, hành vi xã hội)
 const mongoose = require('mongoose');
 
 const memoryLogSchema = new mongoose.Schema({
@@ -30,7 +30,27 @@ const npcSchema = new mongoose.Schema({
   memoryLog: [memoryLogSchema],
   socialReputation: { type: Number, default: 50 },
   reputationType: { type: String, enum: ['tốt', 'trung lập', 'xấu'], default: 'trung lập' },
-  fameTags: [{ type: String }]
+  fameTags: [{ type: String }],
+
+  // === THÊM MỚI: nghề nghiệp, hành vi xã hội ===
+  role: {
+    type: String,
+    default: 'phàm dân',
+  },
+  jobType: {
+    type: String,
+    enum: ['tuyển dụng', 'lao động', 'giao thương', 'giám sát'],
+    default: 'tuyển dụng'
+  },
+  behavior: {
+    activeHours: [Number],
+    attitude: {
+      type: String,
+      enum: ['hòa nhã', 'nghiêm khắc', 'lắm lời', 'nóng tính', 'bí ẩn'],
+      default: 'hòa nhã'
+    }
+  },
+  relationshipTags: [String]
 });
 
 module.exports = mongoose.model('Npc', npcSchema);
