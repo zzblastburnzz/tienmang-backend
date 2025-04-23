@@ -10,6 +10,7 @@ const memoryLogSchema = new mongoose.Schema({
 
 const npcSchema = new mongoose.Schema({
   name: String,
+  username: { type: String, required: true, unique: true, trim: true },
   avatar: String,
   gioi: String,
   chau: String,
