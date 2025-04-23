@@ -1,11 +1,24 @@
-
+// chat.controller.js (tích hợp tạo Job từ chat)
 const Conversation = require('../models/conversation.model');
 const Message = require('../models/message.model');
 const NPC = require('../models/npc.model');
+const SocialLink = require('../models/sociallink.model');
+const { createJobFromChat } = require('../services/jobGeneratorFromChat');
 
-// Giả lập phản hồi AI (sau này có thể gọi OpenAI API)
-const generateAIReply = (npcName, userMessage) => {
-  return `(${npcName} 🤖): Ta nghe ngươi nói "${userMessage}". Hãy kể thêm đi!`;
+const generateAIReply = async (npcId, userId, npcName, userMessage) => {
+  const relationship = await SocialLink.findOne({ from: npcId, to: userId });
+  const score = relationship?.score || 50;
+
+  let moodPrefix = '';
+  if (score > 80) {
+    moodPrefix = `Bạn là người rất thân thiết với ${npcName}. Hãy nói chuyện như người bạn lâu năm, vui vẻ, ấm áp.`;
+  } else if (score < 50) {
+    moodPrefix = `${npcName} cảm thấy không thoải mái khi nói chuyện với người này. Hãy trả lời ngắn gọn, lạnh nhạt.`;
+  } else {
+    moodPrefix = `${npcName} không quá thân thiết cũng không quá xa cách. Hãy trả lời lịch sự, giữ khoảng cách.`;
+  }
+
+  return `(${npcName} 🤖): [${moodPrefix}] ${npcName} nghe ngươi nói "${userMessage}".`;
 };
 
 exports.startConversation = async (req, res) => {
@@ -38,21 +51,30 @@ exports.sendMessage = async (req, res) => {
     const message = await Message.create({ conversationId, sender, text });
     const convo = await Conversation.findById(conversationId).populate('members');
 
-    // Kiểm tra nếu người nhận là NPC thì tạo phản hồi AI
     const npcReceiver = convo.members.find(m => m._id.toString() !== sender);
     const npcInfo = await NPC.findById(npcReceiver?._id);
 
+    let responseMessages = [message];
+
     if (npcInfo) {
-      const aiText = generateAIReply(npcInfo.username, text);
-      const aiMessage = await Message.create({
-        conversationId,
-        sender: npcInfo._id,
-        text: aiText
-      });
-      return res.status(201).json([message, aiMessage]);
+      // Phản hồi AI tùy mood
+      const aiText = await generateAIReply(npcInfo._id, sender, npcInfo.username, text);
+      const aiMessage = await Message.create({ conversationId, sender: npcInfo._id, text: aiText });
+      responseMessages.push(aiMessage);
+
+      // Tạo job từ nội dung chat (nếu có)
+      const generatedJob = await createJobFromChat(text, npcInfo._id, sender);
+      if (generatedJob) {
+        const notice = await Message.create({
+          conversationId,
+          sender: npcInfo._id,
+          text: `Ta sẽ giao nhiệm vụ này cho ngươi: ${generatedJob.title}. Muốn nhận chứ?`
+        });
+        responseMessages.push(notice);
+      }
     }
 
-    res.status(201).json([message]);
+    res.status(201).json(responseMessages);
   } catch (err) {
     res.status(500).json({ message: 'Lỗi khi gửi message', error: err.message });
   }
