@@ -27,7 +27,10 @@ const npcSchema = new mongoose.Schema({
   isCore: Boolean,
   roleScore: Number,
   knownPeople: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Npc' }],
-  memoryLog: [memoryLogSchema]
+  memoryLog: [memoryLogSchema],
+  socialReputation: { type: Number, default: 50 },
+  reputationType: { type: String, enum: ['tốt', 'trung lập', 'xấu'], default: 'trung lập' },
+  fameTags: [{ type: String }]
 });
 
 module.exports = mongoose.model('Npc', npcSchema);
