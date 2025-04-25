@@ -69,3 +69,7 @@ exports.sendMessage = async (req, res) => {
     res.status(500).json({ message: 'Lỗi khi gửi message', error: err.message });
   }
 };
+
+exports.sendReminder = async (req, res) => {
+  res.status(200).json({ message: 'Nhắc nhở thành công (dummy)' });
+};
