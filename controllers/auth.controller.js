@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/user.model');
 
 exports.register = async (req, res) => {
+ console.log('🔥 [Register] req.body:', req.body); // 🔥 THÊM DÒNG NÀY
   const { username, password } = req.body;
   try {
     const existingUser = await User.findOne({ username });
@@ -13,6 +14,7 @@ exports.register = async (req, res) => {
     const user = await User.create({ username, password: hashedPassword });
     res.status(201).json({ message: 'Đăng ký thành công', user });
   } catch (err) {
+  console.error('🔥 [Register] Error:', err); // 🔥 THÊM DÒNG LOG LỖI CHI TIẾT
     res.status(500).json({ message: 'Lỗi server', error: err.message });
   }
 };
