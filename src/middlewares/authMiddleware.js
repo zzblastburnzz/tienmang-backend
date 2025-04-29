@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const asyncHandler = require('express-async-handler');
 const User = require('../models/user.model');
 
-// Middleware kiểm tra token và xác thực user
+// Middleware xác thực token
 const protect = asyncHandler(async (req, res, next) => {
   let token;
 
@@ -11,17 +11,20 @@ const protect = asyncHandler(async (req, res, next) => {
       token = req.headers.authorization.split(' ')[1];
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-      req.user = await User.findById(decoded.id).select('-password');
+      req.user = await User.findById(decoded.id).select('-password'); // Gắn user vào req để dùng sau
 
-      next();
+      if (!req.user) {
+        res.status(401);
+        throw new Error('User not found');
+      }
+
+      next(); // Cho phép đi tiếp
     } catch (error) {
-      console.error(error);
+      console.error('Token verification failed:', error);
       res.status(401);
       throw new Error('Not authorized, token failed');
     }
-  }
-
-  if (!token) {
+  } else {
     res.status(401);
     throw new Error('Not authorized, no token');
   }
