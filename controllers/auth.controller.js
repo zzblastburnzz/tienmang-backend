@@ -11,7 +11,7 @@ exports.register = async (req, res) => {
     if (existingUser) return res.status(400).json({ message: 'Username đã tồn tại' });
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const user = await User.create({ username, password: hashedPassword });
+    const user = await User.create({ username, password });
     res.status(201).json({ message: 'Đăng ký thành công', user });
   } catch (err) {
   console.error('🔥 [Register] Error:', err); // 🔥 THÊM DÒNG LOG LỖI CHI TIẾT
@@ -25,7 +25,7 @@ exports.login = async (req, res) => {
     const user = await User.findOne({ username });
     if (!user) return res.status(400).json({ message: 'Sai tên đăng nhập hoặc mật khẩu' });
 
-    const isMatch = await bcrypt.compare(password, user.password);
+    const isMatch = await user.matchPassword(password);
     if (!isMatch) return res.status(400).json({ message: 'Sai tên đăng nhập hoặc mật khẩu' });
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '30d' });
