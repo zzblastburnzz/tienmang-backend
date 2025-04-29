@@ -1,7 +1,7 @@
 // chat.controller.js (nâng cấp phản hồi theo behavior)
 const Conversation = require('../models/conversation.model');
 const Message = require('../models/message.model');
-const NPC = require('../models/npc.model');
+const Character = require('../models/character.model');
 const SocialLink = require('../models/sociallink.model');
 const { createJobFromChat } = require('../services/jobGeneratorFromChat');
 const { generateNpcReplyWithBehavior } = require('../utils/generateNpcReply');
