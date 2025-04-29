@@ -12,7 +12,7 @@ app.use(express.json());
 
 // Routes
 const authRoutes = require('./routes/auth.route');
-const npcRoutes = require('./routes/npc.route');
+const characterRoutes = require('./routes/character.route');
 const postRoutes = require('./routes/post.route');
 const chatRoutes = require('./routes/chat.route');
 const storyRoutes = require('./routes/story.route');
@@ -22,10 +22,10 @@ const tuviRoutes = require('./routes/tuvi.route');
 const worldRoutes = require('./routes/world.route');
 const factionRoutes = require('./routes/faction.route');
 const socialLinkRoutes = require('./routes/sociallink.route');
-const userRoutes = require('./routes/user.route');
+const characterRoutes = require('./routes/character.route');
 
 app.use('/auth', authRoutes);
-app.use('/npcs', npcRoutes);
+app.use('/characters', characterRoutes);
 app.use('/posts', postRoutes);
 app.use('/chat', chatRoutes);
 app.use('/stories', storyRoutes);
@@ -34,8 +34,7 @@ app.use('/feed', feedRoutes);
 app.use('/tuvi', tuviRoutes);
 app.use('/worlds', worldRoutes);
 app.use('/factions', factionRoutes);
-app.use('/api/sociallink', socialLinkRoutes);
-app.use('/api/users', userRoutes);
+app.use('/sociallink', socialLinkRoutes);
 
 // Kết nối MongoDB
 mongoose.connect(process.env.MONGO_URI)
