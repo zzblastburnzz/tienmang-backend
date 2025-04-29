@@ -1,20 +1,19 @@
 
-const NPC = require('../models/npc.model');
-const User = require('../models/user.model');
+const Character = require('../models/character.model');
 
 exports.getAllNPCs = async (req, res) => {
   try {
-    const npcs = await NPC.find().select('-__v').limit(20);
+    const characters = await Character.find().select('-__v').limit(20);
     res.json(npcs);
   } catch (err) {
     res.status(500).json({ message: 'Lỗi server', error: err.message });
   }
 };
 
-exports.getNPCById = async (req, res) => {
+exports.getCharacterById = async (req, res) => {
   try {
-    const npc = await NPC.findById(req.params.id).populate('friends', 'username avatar');
-    if (!npc) return res.status(404).json({ message: 'NPC không tồn tại' });
+    const npc = await Character.findById(req.params.id).populate('friends', 'username avatar');
+    if (!npc) return res.status(404).json({ message: 'Nhân vật không tồn tại' });
     res.json(npc);
   } catch (err) {
     res.status(500).json({ message: 'Lỗi server', error: err.message });
@@ -24,7 +23,7 @@ exports.getNPCById = async (req, res) => {
 exports.sendFriendRequest = async (req, res) => {
   const userId = req.body.userId;
   try {
-    const npc = await NPC.findById(req.params.id);
+    const npc = await Character.findById(req.params.id);
     if (!npc) return res.status(404).json({ message: 'NPC không tồn tại' });
 
     if (!npc.friends.includes(userId)) {
@@ -32,7 +31,7 @@ exports.sendFriendRequest = async (req, res) => {
       await npc.save();
     }
 
-    res.json({ message: 'Đã gửi kết bạn với NPC', npc });
+    res.json({ message: 'Đã gửi kết bạn với nhân vật', character });
   } catch (err) {
     res.status(500).json({ message: 'Lỗi server', error: err.message });
   }

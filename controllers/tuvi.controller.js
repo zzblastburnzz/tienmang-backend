@@ -1,13 +1,13 @@
 
-const User = require('../models/user.model');
+const User = require('../models/character.model');
 const { canBreakThrough, TUVICHAIN } = require('../utils/tuvi.service');
 
 exports.breakthrough = async (req, res) => {
   const userId = req.body.userId;
 
   try {
-    const user = await User.findById(userId);
-    if (!user) return res.status(404).json({ message: 'Không tìm thấy user' });
+    const character = await Character.findById(characterId);
+    if (!user) return res.status(404).json({ message: 'Không tìm thấy nhân vật' });
 
     const nextTuVi = canBreakThrough(user);
     if (!nextTuVi) {
