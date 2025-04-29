@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const World = require('../models/world.model');
-const Npc = require('../models/npc.model');
+const Character = require('../models/character.model');
 
 router.get('/', async (req, res) => {
   try {
