@@ -5,7 +5,7 @@ const User = require('../models/character.model');
 // @desc    Get character profile
 // @route   GET /api/character/profile
 // @access  Private
-const getUserProfile = asyncHandler(async (req, res) => {
+const getCharacterProfile = asyncHandler(async (req, res) => {
   const user = await Character.findById(req.character._id);
   if (character) {
     res.json(character);
@@ -16,7 +16,7 @@ const getUserProfile = asyncHandler(async (req, res) => {
 });
 
 // @desc    Update character profile + Check Dynamic Hidden Attributes
-// @route   PUT /api/character/updateProfile
+// @route   PUT /api/character/updateCharacterProfile
 // @access  Private
 const updateCharacterProfile = asyncHandler(async (req, res) => {
   const user = await Character.findById(req.character._id);
