@@ -1,6 +1,6 @@
 
 const Post = require('../models/post.model');
-const NPC = require('../models/npc.model');
+const Character = require('../models/character.model');
 
 const moodOptions = ['happy', 'sad', 'neutral'];
 const captions = [
@@ -34,7 +34,7 @@ async function runAutoPost() {
     const startOfDay = new Date();
     startOfDay.setHours(0, 0, 0, 0);
 
-    const npcs = await NPC.find();
+    const characters = await Character.find();
 
     for (const npc of npcs) {
       const todayPosts = await Post.find({
@@ -47,14 +47,14 @@ async function runAutoPost() {
 
       if (todayPosts.length < maxPostsToday) {
         const post = await Post.create({
-          author: npc._id,
+          author: character._id,
           content: pickRandom(captions),
           mood: pickRandom(moodOptions),
           image: '',
           postedAt: now
         });
 
-        console.log(`📢 NPC ${npc.username} vừa đăng bài tự động lúc ${now.toLocaleTimeString()}`);
+        console.log(`📢 NPC ${character.username} vừa đăng bài tự động lúc ${now.toLocaleTimeString()}`);
       }
     }
 

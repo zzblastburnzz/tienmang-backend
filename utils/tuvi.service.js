@@ -1,6 +1,5 @@
 
-const User = require('../models/user.model');
-const NPC = require('../models/npc.model');
+const User = require('../models/character.model');
 
 const TUVICHAIN = [
   'Phàm nhân',
