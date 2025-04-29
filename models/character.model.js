@@ -19,7 +19,7 @@ const characterSchema = new mongoose.Schema({
   showTuVi: { type: String, default: 'Ẩn' },
   linhCan: { type: String, default: 'Vô linh' },
   ngoTinh: { type: Number, default: 20 },
-  tinhThan: { type: Number, default: 20 }
+  tinhThan: { type: Number, default: 20 },
   kinhMach: { type: Number, default: 100 },
 
   // Xã Hội Attributes
