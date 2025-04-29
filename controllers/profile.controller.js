@@ -1,14 +1,14 @@
 
-const User = require('../models/user.model');
+const Character = require('../models/character.model');
 const NPC = require('../models/npc.model');
 const Post = require('../models/post.model');
 
 exports.getProfile = async (req, res) => {
   try {
-    const userId = req.params.id;
+    const CharacterId = req.params.id;
 
     // Ưu tiên tìm ở bảng User trước
-    let user = await User.findById(userId).select('-password');
+    let user = await Character.findById(userId).select('-password');
     if (!user) {
       user = await NPC.findById(userId).select('-__v');
       if (!user) return res.status(404).json({ message: 'Không tìm thấy người dùng hoặc NPC' });
