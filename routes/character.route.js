@@ -4,7 +4,7 @@ const { getCharacterProfile, updateCharacterProfile } = require('../controllers/
 const { protect } = require('../middlewares/authMiddleware');
 const router = express.Router();
 
-router.route('/profile').get(protect, getUserProfile);
-router.route('/updateProfile').put(protect, updateUserProfile);
+router.route('/profile').get(protect, getCharacterProfile);
+router.route('/updateProfile').put(protect, updateCharacterProfile);
 
 module.exports = router;
