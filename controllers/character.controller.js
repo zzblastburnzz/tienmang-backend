@@ -1,9 +1,9 @@
 // src/controllers/user.controller.js
 const asyncHandler = require('express-async-handler');
-const User = require('../models/user.model');
+const User = require('../models/character.model');
 
-// @desc    Get user profile
-// @route   GET /api/users/profile
+// @desc    Get character profile
+// @route   GET /api/character/profile
 // @access  Private
 const getUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
@@ -15,14 +15,19 @@ const getUserProfile = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc    Update user profile + Check Dynamic Hidden Attributes
-// @route   PUT /api/users/updateProfile
+// @desc    Update character profile + Check Dynamic Hidden Attributes
+// @route   PUT /api/character/updateProfile
 // @access  Private
 const updateUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
 
+  if (existingCharacter) {
+    res.status(400);
+    throw new Error('Bạn đã có nhân vật, không thể tạo thêm.');
+  }
+
   if (user) {
-    const { displayName, gender, location, avatar, cover, friendshipScore, charisma, loveScore, trustScore, responsibility, ambition, leadershipSkill, fame, craftingSkill } = req.body;
+    const { displayName, gender, location } = req.body;
 
     if (displayName) user.displayName = displayName;
     if (gender) user.gender = gender;

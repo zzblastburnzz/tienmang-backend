@@ -1,6 +1,6 @@
 // src/routes/user.route.js
 const express = require('express');
-const { getUserProfile, updateUserProfile } = require('../controllers/user.controller');
+const { getCharacterProfile, updateCharacterProfile } = require('../controllers/character.controller');
 const { protect } = require('../middlewares/authMiddleware');
 const router = express.Router();
 

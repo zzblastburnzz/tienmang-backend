@@ -1,7 +1,7 @@
 // src/models/user.model.js
 const mongoose = require('mongoose');
 
-const userSchema = new mongoose.Schema({
+const characterSchema = new mongoose.Schema({
   // Core Attributes
   userId: { type: String, unique: true },
   displayName: { type: String, default: '' },
@@ -19,8 +19,8 @@ const userSchema = new mongoose.Schema({
   showTuVi: { type: String, default: 'Ẩn' },
   linhCan: { type: String, default: 'Vô linh' },
   ngoTinh: { type: Number, default: 20 },
+  tinhThan: { type: Number, default: 20 }
   kinhMach: { type: Number, default: 100 },
-  tuHanhCap: { type: String, default: 'Luyện Khí tầng 1' },
 
   // Xã Hội Attributes
   reputation: { type: Number, default: 50 },
@@ -73,4 +73,4 @@ const userSchema = new mongoose.Schema({
 
 }, { timestamps: true });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('Character', CharacterSchema);
