@@ -1,33 +1,105 @@
-[
-  {
-    "name": "Nhân Giới",
-    "type": "Nhân",
-    "description": "Thế giới đông dân nhất, nơi sinh sống của phàm nhân và các tu sĩ sơ cấp.",
-    "populationScale": "rất đông",
-    "averageTuVi": "Luyện Khí",
-    "regions": [
-      {
-        "name": "Đại Châu",
-        "cities": [
-          {
-            "name": "Trung Đô",
-            "description": "Kinh đô phồn thịnh của Nhân Giới",
-            "cityType": "thành"
-          },
-          {
-            "name": "Tiểu Lạc",
-            "description": "Làng quê thanh bình",
-            "cityType": "làng"
-          },
-          {
-            "name": "Thạch Ẩn",
-            "description": "Thành cổ ẩn mình giữa rừng sâu",
-            "cityType": "thành"
-          }
-        ]
-      }
-    ]
-  },
+[{
+  "worlds": [
+    {
+      "name": "Nhân Giới",
+      "description": "Thế giới phàm nhân rộng lớn, nơi sinh sống của con người và các quốc gia cổ xưa.",
+      "regions": [
+        {
+          "name": "Đại Châu",
+          "description": "Trung tâm kinh tế và học thuật phồn hoa nhất của Nhân Giới.",
+          "cities": [
+            {
+              "name": "Thiên Long Thành",
+              "description": "Thành phố huy hoàng với các gia tộc tu tiên hùng mạnh.",
+              "subAreas": [
+                {"name": "Thiên Vân Các", "description": "Nơi tập hợp học giả, nơi hội tụ văn võ toàn tài."},
+                {"name": "Hồng Liên Trấn", "description": "Trấn nhỏ nổi tiếng với hoa sen đỏ nở quanh năm."}
+              ]
+            },
+            {
+              "name": "Bạch Vân Thôn",
+              "description": "Làng quê yên bình nép mình dưới chân núi Bạch Vân.",
+              "subAreas": [
+                {"name": "Phong Tuyết Lâm", "description": "Khu rừng quanh năm phủ tuyết, nơi ẩn cư của cao nhân."}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Nam Châu",
+          "description": "Vùng đất phương Nam giàu khoáng sản và sơn cốc bí ẩn.",
+          "cities": [
+            {
+              "name": "Nam Vực Thành",
+              "description": "Cửa ngõ giao thương với Linh Giới, sầm uất và hỗn loạn.",
+              "subAreas": [
+                {"name": "Hàn Nguyệt Cốc", "description": "Thung lũng băng giá quanh năm, chứa đựng kỳ bảo."}
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tiên Giới",
+      "description": "Thế giới của các bậc tiên nhân, nơi linh khí nồng đậm và tu luyện dễ dàng.",
+      "regions": [
+        {
+          "name": "Thanh Vân Châu",
+          "description": "Châu lớn nhất Tiên Giới, hội tụ tông môn danh giá.",
+          "cities": [
+            {
+              "name": "Thanh Vân Thành",
+              "description": "Thành thị mệnh danh 'Đệ nhất thành Tiên Giới'.",
+              "subAreas": [
+                {"name": "Vân Hải Các", "description": "Căn cứ nghiên cứu tiên trận cổ đại."}
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ma Giới",
+      "description": "Vùng đất đen tối nơi ma tu hoành hành, tà khí ngút trời.",
+      "regions": [
+        {
+          "name": "Hắc Châu",
+          "description": "Vùng đất hỗn loạn, nơi sức mạnh quyết định sinh tử.",
+          "cities": [
+            {
+              "name": "Hắc Ám Thành",
+              "description": "Thành phố chính thống của Ma Tu, nơi diễn ra các trận đấu sinh tử.",
+              "subAreas": [
+                {"name": "U Minh Cốc", "description": "Cốc tối vĩnh hằng, nơi giam giữ linh hồn bị nguyền rủa."}
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Yêu Giới",
+      "description": "Thế giới của yêu thú hóa hình, tràn ngập khí tức hoang dã.",
+      "regions": [
+        {
+          "name": "Yêu Châu",
+          "description": "Lãnh địa rộng lớn của Yêu Tộc mạnh nhất.",
+          "cities": [
+            {
+              "name": "Thanh Mộc Thành",
+              "description": "Thành phố sinh ra từ cây đại thụ ngàn năm.",
+              "subAreas": [
+                {"name": "Vạn Thú Sơn", "description": "Nơi tụ họp của vô số yêu thú linh trí."}
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
   {
     "name": "Linh Giới",
     "type": "Linh",
@@ -53,30 +125,6 @@
     ]
   },
   {
-    "name": "Ma Giới",
-    "type": "Ma",
-    "description": "Lãnh địa hỗn loạn, nơi những kẻ tu ma, tà đạo sinh sống.",
-    "populationScale": "đông",
-    "averageTuVi": "Kim Đan",
-    "regions": [
-      {
-        "name": "Hắc Châu",
-        "cities": [
-          {
-            "name": "U Minh Thành",
-            "description": "Thành trì ma khí dày đặc",
-            "cityType": "thành"
-          },
-          {
-            "name": "Huyết Đàm",
-            "description": "Hang ổ tà tu",
-            "cityType": "hang ổ"
-          }
-        ]
-      }
-    ]
-  },
-  {
     "name": "Thần Giới",
     "type": "Thần",
     "description": "Giới cao tầng, ít người được đặt chân tới, tu vi rất cao.",
@@ -89,30 +137,6 @@
           {
             "name": "Thiên Phủ",
             "description": "Nơi các thần sống",
-            "cityType": "thành"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "Yêu Giới",
-    "type": "Yêu",
-    "description": "Lãnh thổ của yêu thú, nhiều tộc hóa hình.",
-    "populationScale": "vừa",
-    "averageTuVi": "Trúc Cơ",
-    "regions": [
-      {
-        "name": "Yêu Châu",
-        "cities": [
-          {
-            "name": "Lang Thôn",
-            "description": "Nơi tụ hội yêu tộc lang",
-            "cityType": "làng"
-          },
-          {
-            "name": "Xích Hồ",
-            "description": "Trấn yêu hồ canh giữ",
             "cityType": "thành"
           }
         ]
@@ -144,28 +168,9 @@
     ]
   },
   {
-    "name": "Tiên Giới",
-    "type": "Thần",
-    "description": "Nơi các bậc đại năng ngộ đạo sinh sống.",
-    "populationScale": "rất ít",
-    "averageTuVi": "Đại Thừa",
-    "regions": [
-      {
-        "name": "Thanh Vân Châu",
-        "cities": [
-          {
-            "name": "Ngọc Thanh Thành",
-            "description": "Cảnh giới thuần khiết nhất",
-            "cityType": "thành"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "Hải Giới",
+    "name": "Nguyên Giới",
     "type": "Nhân",
-    "description": "Thế giới biển sâu, nơi sinh sống của hải tộc.",
+    "description": "Thế giới biển sâu, nơi sinh sống của các nguyên tố tinh linh.",
     "populationScale": "vừa",
     "averageTuVi": "Luyện Khí",
     "regions": [
@@ -191,7 +196,7 @@
     "type": "Hỗn Độn",
     "description": "Nơi hỗn mang, lằn ranh giữa không gian và thời gian.",
     "populationScale": "rất ít",
-    "averageTuVi": "Thiên Đạo",
+    "averageTuVi": "Cận Thiên Đạo",
     "regions": [
       {
         "name": "Hỗn Giới Châu",
