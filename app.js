@@ -22,10 +22,9 @@ const tuviRoutes = require('./routes/tuvi.route');
 const worldRoutes = require('./routes/world.route');
 const factionRoutes = require('./routes/faction.route');
 const socialLinkRoutes = require('./routes/sociallink.route');
-const characterRoutes = require('./routes/character.route');
 
 app.use('/auth', authRoutes);
-app.use('/characters', characterRoutes);
+app.use('/character', characterRoutes);
 app.use('/posts', postRoutes);
 app.use('/chat', chatRoutes);
 app.use('/stories', storyRoutes);
