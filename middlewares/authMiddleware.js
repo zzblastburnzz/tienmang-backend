@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const asyncHandler = require('express-async-handler');
-const User = require('../models/user.model');
+const auth = require('../models/auth.model');
 
 // Middleware xác thực token
 const protect = asyncHandler(async (req, res, next) => {
