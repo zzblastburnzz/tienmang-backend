@@ -1,11 +1,11 @@
 // routes/feed.route.js (gộp feed toàn cục + cá nhân hóa)
 const express = require('express');
 const router = express.Router();
-const Npc = require('../models/npc.model');
+const Npc = require('../models/character.model');
 const Post = require('../models/post.model');
 const SocialLink = require('../models/sociallink.model');
 
-// GET /feed?userId=... => cá nhân hóa | không có userId => toàn cục
+// GET /feed?characterId=... => cá nhân hóa | không có characterId => toàn cục
 router.get('/', async (req, res) => {
   const { userId } = req.query;
 
