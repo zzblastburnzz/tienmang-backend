@@ -6,27 +6,22 @@ const User = require('../models/character.model');
 // @route   GET /api/character/profile
 // @access  Private
 const getUserProfile = asyncHandler(async (req, res) => {
-  const user = await User.findById(req.user._id);
-  if (user) {
-    res.json(user);
+  const user = await Character.findById(req.character._id);
+  if (character) {
+    res.json(character);
   } else {
     res.status(404);
-    throw new Error('User not found');
+    throw new Error('Character not found');
   }
 });
 
 // @desc    Update character profile + Check Dynamic Hidden Attributes
 // @route   PUT /api/character/updateProfile
 // @access  Private
-const updateUserProfile = asyncHandler(async (req, res) => {
-  const user = await User.findById(req.user._id);
+const updateCharacterProfile = asyncHandler(async (req, res) => {
+  const user = await Character.findById(req.character._id);
 
-  if (existingCharacter) {
-    res.status(400);
-    throw new Error('Bạn đã có nhân vật, không thể tạo thêm.');
-  }
-
-  if (user) {
+  if (character) {
     const { displayName, gender, location } = req.body;
 
     if (displayName) user.displayName = displayName;
@@ -54,13 +49,13 @@ const updateUserProfile = asyncHandler(async (req, res) => {
     if (user.leadershipSkill > 80 && user.fame > 100) user.dynamicHiddenAttributes.clanLeaderPotential = true;
     if (user.craftingSkill > 60 && user.responsibility > 50) user.dynamicHiddenAttributes.farmOwner = true;
 
-    const updatedUser = await user.save();
+    const updatedCharacter = await character.save();
 
-    res.json(updatedUser);
+    res.json(updatedCharacter);
   } else {
     res.status(404);
-    throw new Error('User not found');
+    throw new Error('Character not found');
   }
 });
 
-module.exports = { getUserProfile, updateUserProfile };
+module.exports = { getCharacterProfile, updateCharacterProfile };
