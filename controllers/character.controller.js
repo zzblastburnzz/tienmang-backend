@@ -1,4 +1,3 @@
-// src/controllers/user.controller.js
 const asyncHandler = require('express-async-handler');
 const Character = require('../models/character.model');
 
@@ -16,13 +15,28 @@ const getCharacterProfile = asyncHandler(async (req, res) => {
 });
 
 // @desc    Update character profile + Check Dynamic Hidden Attributes
-// @route   PUT /api/character/updateCharacterProfile
+// @route   PUT /api/character/updateProfile
 // @access  Private
 const updateCharacterProfile = asyncHandler(async (req, res) => {
   const character = await Character.findById(req.character._id);
 
   if (character) {
-    const { displayName, gender, location } = req.body;
+    const {
+      displayName,
+      gender,
+      location,
+      avatar,
+      cover,
+      friendshipScore,
+      charisma,
+      loveScore,
+      trustScore,
+      responsibility,
+      ambition,
+      leadershipSkill,
+      fame,
+      craftingSkill
+    } = req.body;
 
     if (displayName) character.displayName = displayName;
     if (gender) character.gender = gender;
@@ -41,16 +55,27 @@ const updateCharacterProfile = asyncHandler(async (req, res) => {
     if (fame !== undefined) character.fame = fame;
     if (craftingSkill !== undefined) character.craftingSkill = craftingSkill;
 
-    // Kiểm tra kích hoạt Dynamic Hidden Attributes
-    if (character.friendshipScore > 50 && character.charisma > 60) character.dynamicHiddenAttributes.loveActivated = true;
-    if (character.loveScore > 70 && character.trustScore > 50) character.dynamicHiddenAttributes.marriageStatus = 'Engaged';
-    if (character.loveScore > 80 && character.dynamicHiddenAttributes.marriageStatus === 'Married') character.dynamicHiddenAttributes.hasChildren = true;
-    if (character.responsibility > 60 && character.ambition > 70) character.dynamicHiddenAttributes.careerPath = 'Quan chức';
-    if (character.leadershipSkill > 80 && character.fame > 100) character.dynamicHiddenAttributes.clanLeaderPotential = true;
-    if (character.craftingSkill > 60 && character.responsibility > 50) character.dynamicHiddenAttributes.farmOwner = true;
+    // Kích hoạt Dynamic Hidden Attributes
+    if (character.friendshipScore > 50 && character.charisma > 60) {
+      character.dynamicHiddenAttributes.loveActivated = true;
+    }
+    if (character.loveScore > 70 && character.trustScore > 50) {
+      character.dynamicHiddenAttributes.marriageStatus = 'Engaged';
+    }
+    if (character.loveScore > 80 && character.dynamicHiddenAttributes.marriageStatus === 'Married') {
+      character.dynamicHiddenAttributes.hasChildren = true;
+    }
+    if (character.responsibility > 60 && character.ambition > 70) {
+      character.dynamicHiddenAttributes.careerPath = 'Quan chức';
+    }
+    if (character.leadershipSkill > 80 && character.fame > 100) {
+      character.dynamicHiddenAttributes.clanLeaderPotential = true;
+    }
+    if (character.craftingSkill > 60 && character.responsibility > 50) {
+      character.dynamicHiddenAttributes.farmOwner = true;
+    }
 
     const updatedCharacter = await character.save();
-
     res.json(updatedCharacter);
   } else {
     res.status(404);
