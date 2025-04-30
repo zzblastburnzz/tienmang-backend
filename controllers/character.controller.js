@@ -14,73 +14,83 @@ const getCharacterProfile = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc    Update character profile + Check Dynamic Hidden Attributes
+// @desc    Update or create character profile + Check Dynamic Hidden Attributes
 // @route   PUT /api/character/updateProfile
 // @access  Private
 const updateCharacterProfile = asyncHandler(async (req, res) => {
-  const character = await Character.findById(req.user._id);
+  let character = await Character.findById(req.user._id);
 
-  if (character) {
-    const {
+  const {
+    displayName,
+    gender,
+    location,
+    avatar,
+    cover,
+    friendshipScore,
+    charisma,
+    loveScore,
+    trustScore,
+    responsibility,
+    ambition,
+    leadershipSkill,
+    fame,
+    craftingSkill
+  } = req.body;
+
+  // Nếu chưa có thì tạo mới
+  if (!character) {
+    character = await Character.create({
+      _id: req.user._id,
       displayName,
       gender,
       location,
       avatar,
       cover,
-      friendshipScore,
-      charisma,
-      loveScore,
-      trustScore,
-      responsibility,
-      ambition,
-      leadershipSkill,
-      fame,
-      craftingSkill
-    } = req.body;
-
-    if (displayName) character.displayName = displayName;
-    if (gender) character.gender = gender;
-    if (location) character.location = location;
-    if (avatar) character.avatar = avatar;
-    if (cover) character.cover = cover;
-
-    // Cập nhật các chỉ số xã hội nếu gửi lên
-    if (friendshipScore !== undefined) character.friendshipScore = friendshipScore;
-    if (charisma !== undefined) character.charisma = charisma;
-    if (loveScore !== undefined) character.loveScore = loveScore;
-    if (trustScore !== undefined) character.trustScore = trustScore;
-    if (responsibility !== undefined) character.responsibility = responsibility;
-    if (ambition !== undefined) character.ambition = ambition;
-    if (leadershipSkill !== undefined) character.leadershipSkill = leadershipSkill;
-    if (fame !== undefined) character.fame = fame;
-    if (craftingSkill !== undefined) character.craftingSkill = craftingSkill;
-
-    // Kích hoạt Dynamic Hidden Attributes
-    if (character.friendshipScore > 50 && character.charisma > 60) {
-      character.dynamicHiddenAttributes.loveActivated = true;
-    }
-    if (character.loveScore > 70 && character.trustScore > 50) {
-      character.dynamicHiddenAttributes.marriageStatus = 'Engaged';
-    }
-    if (character.loveScore > 80 && character.dynamicHiddenAttributes.marriageStatus === 'Married') {
-      character.dynamicHiddenAttributes.hasChildren = true;
-    }
-    if (character.responsibility > 60 && character.ambition > 70) {
-      character.dynamicHiddenAttributes.careerPath = 'Quan chức';
-    }
-    if (character.leadershipSkill > 80 && character.fame > 100) {
-      character.dynamicHiddenAttributes.clanLeaderPotential = true;
-    }
-    if (character.craftingSkill > 60 && character.responsibility > 50) {
-      character.dynamicHiddenAttributes.farmOwner = true;
-    }
-
-    const updatedCharacter = await character.save();
-    res.json(updatedCharacter);
-  } else {
-    res.status(404);
-    throw new Error('Character not found');
+      dynamicHiddenAttributes: {}
+    });
+    return res.status(201).json(character);
   }
+
+  // Nếu đã có thì cập nhật
+  if (displayName) character.displayName = displayName;
+  if (gender) character.gender = gender;
+  if (location) character.location = location;
+  if (avatar) character.avatar = avatar;
+  if (cover) character.cover = cover;
+
+  // Cập nhật các chỉ số xã hội nếu gửi lên
+  if (friendshipScore !== undefined) character.friendshipScore = friendshipScore;
+  if (charisma !== undefined) character.charisma = charisma;
+  if (loveScore !== undefined) character.loveScore = loveScore;
+  if (trustScore !== undefined) character.trustScore = trustScore;
+  if (responsibility !== undefined) character.responsibility = responsibility;
+  if (ambition !== undefined) character.ambition = ambition;
+  if (leadershipSkill !== undefined) character.leadershipSkill = leadershipSkill;
+  if (fame !== undefined) character.fame = fame;
+  if (craftingSkill !== undefined) character.craftingSkill = craftingSkill;
+
+  // Kích hoạt Dynamic Hidden Attributes
+  if (character.friendshipScore > 50 && character.charisma > 60) {
+    character.dynamicHiddenAttributes.loveActivated = true;
+  }
+  if (character.loveScore > 70 && character.trustScore > 50) {
+    character.dynamicHiddenAttributes.marriageStatus = 'Engaged';
+  }
+  if (character.loveScore > 80 && character.dynamicHiddenAttributes.marriageStatus === 'Married') {
+    character.dynamicHiddenAttributes.hasChildren = true;
+  }
+  if (character.responsibility > 60 && character.ambition > 70) {
+    character.dynamicHiddenAttributes.careerPath = 'Quan chức';
+  }
+  if (character.leadershipSkill > 80 && character.fame > 100) {
+    character.dynamicHiddenAttributes.clanLeaderPotential = true;
+  }
+  if (character.craftingSkill > 60 && character.responsibility > 50) {
+    character.dynamicHiddenAttributes.farmOwner = true;
+  }
+
+  const updatedCharacter = await character.save();
+  res.json(updatedCharacter);
 });
 
 module.exports = { getCharacterProfile, updateCharacterProfile };
