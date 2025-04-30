@@ -5,7 +5,7 @@ const Character = require('../models/character.model');
 // @route   GET /api/character/profile
 // @access  Private
 const getCharacterProfile = asyncHandler(async (req, res) => {
-  const character = await Character.findById(req.character._id);
+  const character = await Character.findById(req.user._id);
   if (character) {
     res.json(character);
   } else {
@@ -18,7 +18,7 @@ const getCharacterProfile = asyncHandler(async (req, res) => {
 // @route   PUT /api/character/updateProfile
 // @access  Private
 const updateCharacterProfile = asyncHandler(async (req, res) => {
-  const character = await Character.findById(req.character._id);
+  const character = await Character.findById(req.user._id);
 
   if (character) {
     const {
