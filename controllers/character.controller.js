@@ -2,12 +2,13 @@ const asyncHandler = require('express-async-handler');
 const Character = require('../models/character.model');
 
 // @desc    Get character profile
-// @route   GET /api/character/profile
+// @route   GET /character/profile
 // @access  Private
 const getCharacterProfile = asyncHandler(async (req, res) => {
   const character = await Character.findById(req.user._id);
   if (character) {
-    res.json(character);
+    const profileComplete = !!(character.displayName && character.gender);
+    res.json({ ...character.toObject(), profileComplete });
   } else {
     res.status(404);
     throw new Error('Character not found');
@@ -15,7 +16,7 @@ const getCharacterProfile = asyncHandler(async (req, res) => {
 });
 
 // @desc    Update or create character profile
-// @route   PUT /api/character/updateProfile
+// @route   PUT /character/updateProfile
 // @access  Private
 const updateCharacterProfile = asyncHandler(async (req, res) => {
   let character = await Character.findById(req.user._id);
@@ -37,7 +38,6 @@ const updateCharacterProfile = asyncHandler(async (req, res) => {
   } = req.body;
 
   if (!character) {
-    // Kiểm tra đủ thông tin để tạo mới nhân vật
     if (!displayName || !gender || !location) {
       res.status(400);
       throw new Error('Thiếu thông tin để tạo nhân vật');
@@ -54,14 +54,12 @@ const updateCharacterProfile = asyncHandler(async (req, res) => {
     return res.status(201).json(character);
   }
 
-  // Nếu đã có thì cập nhật
   if (displayName) character.displayName = displayName;
   if (gender) character.gender = gender;
   if (location) character.location = location;
   if (avatar) character.avatar = avatar;
   if (cover) character.cover = cover;
 
-  // Cập nhật chỉ số nếu có
   if (friendshipScore !== undefined) character.friendshipScore = friendshipScore;
   if (charisma !== undefined) character.charisma = charisma;
   if (loveScore !== undefined) character.loveScore = loveScore;
@@ -72,7 +70,6 @@ const updateCharacterProfile = asyncHandler(async (req, res) => {
   if (fame !== undefined) character.fame = fame;
   if (craftingSkill !== undefined) character.craftingSkill = craftingSkill;
 
-  // Kích hoạt thuộc tính ẩn
   if (character.friendshipScore > 50 && character.charisma > 60) {
     character.dynamicHiddenAttributes.loveActivated = true;
   }
