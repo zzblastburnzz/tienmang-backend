@@ -5,7 +5,7 @@ const Character = require('../models/character.model');
 // @route   GET /character/profile
 // @access  Private
 const getCharacterProfile = asyncHandler(async (req, res) => {
-  const character = await Character.findById(req.user._id);
+  const character = await Character.findOne({ userId: req.user._id });
   if (character) {
     const profileComplete = !!(character.displayName && character.gender);
     res.json({ ...character.toObject(), profileComplete });
@@ -19,7 +19,7 @@ const getCharacterProfile = asyncHandler(async (req, res) => {
 // @route   PUT /character/updateProfile
 // @access  Private
 const updateCharacterProfile = asyncHandler(async (req, res) => {
-  let character = await Character.findById(req.user._id);
+  let character = await Character.findOne({ userId: req.user._id });
   const {
     displayName,
     gender,
@@ -43,7 +43,7 @@ const updateCharacterProfile = asyncHandler(async (req, res) => {
       throw new Error('Thiếu thông tin để tạo nhân vật');
     }
     character = await Character.create({
-      _id: req.user._id,
+      userId: req.user._id,
       displayName,
       gender,
       location,
