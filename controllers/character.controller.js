@@ -14,12 +14,11 @@ const getCharacterProfile = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc    Update or create character profile + Check Dynamic Hidden Attributes
+// @desc    Update or create character profile
 // @route   PUT /api/character/updateProfile
 // @access  Private
 const updateCharacterProfile = asyncHandler(async (req, res) => {
   let character = await Character.findById(req.user._id);
-
   const {
     displayName,
     gender,
@@ -37,8 +36,12 @@ const updateCharacterProfile = asyncHandler(async (req, res) => {
     craftingSkill
   } = req.body;
 
-  // Nếu chưa có thì tạo mới
   if (!character) {
+    // Kiểm tra đủ thông tin để tạo mới nhân vật
+    if (!displayName || !gender || !location) {
+      res.status(400);
+      throw new Error('Thiếu thông tin để tạo nhân vật');
+    }
     character = await Character.create({
       _id: req.user._id,
       displayName,
@@ -58,7 +61,7 @@ const updateCharacterProfile = asyncHandler(async (req, res) => {
   if (avatar) character.avatar = avatar;
   if (cover) character.cover = cover;
 
-  // Cập nhật các chỉ số xã hội nếu gửi lên
+  // Cập nhật chỉ số nếu có
   if (friendshipScore !== undefined) character.friendshipScore = friendshipScore;
   if (charisma !== undefined) character.charisma = charisma;
   if (loveScore !== undefined) character.loveScore = loveScore;
@@ -69,7 +72,7 @@ const updateCharacterProfile = asyncHandler(async (req, res) => {
   if (fame !== undefined) character.fame = fame;
   if (craftingSkill !== undefined) character.craftingSkill = craftingSkill;
 
-  // Kích hoạt Dynamic Hidden Attributes
+  // Kích hoạt thuộc tính ẩn
   if (character.friendshipScore > 50 && character.charisma > 60) {
     character.dynamicHiddenAttributes.loveActivated = true;
   }
