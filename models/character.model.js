@@ -69,7 +69,7 @@ const characterSchema = new mongoose.Schema({
     careerPath: { type: String, default: '' },
     clanLeaderPotential: { type: Boolean, default: false },
     farmOwner: { type: Boolean, default: false },
-  }
+  },
 
   avatar_full: { type: String, default: '' },
   images: [
