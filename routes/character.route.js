@@ -6,7 +6,7 @@ const {
   updateCharacterProfile,
   renderCharacterImage
 } = require('../controllers/character.controller');
-const { protect } = require('../middleware/authMiddleware');
+const { protect } = require('../../middleware/authMiddleware');
 
 router.get('/profile', protect, getCharacterProfile);
 router.patch('/profile', protect, updateCharacterProfile);
