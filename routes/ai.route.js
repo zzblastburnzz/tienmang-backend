@@ -1,6 +1,7 @@
+
 const express = require('express');
 const router = express.Router();
-const authenticate = require('../middlewares/authMiddleware');
+const authenticate = require('../middlewares/authenticate');
 const Character = require('../models/character.model');
 const { callAiRenderImage } = require('../services/ai.service');
 
@@ -16,14 +17,19 @@ router.post('/render-image', authenticate, async (req, res) => {
     if (!character) return res.status(404).json({ message: 'Không tìm thấy nhân vật' });
 
     if (type === 'cover') character.avatar_full = imageUrl;
-    character.images.push({ url: imageUrl, createdAt: new Date() });
+
+    character.images.push({
+      url: imageUrl,
+      createdAt: new Date()
+    });
 
     await character.save();
-    res.json({ imageUrl });
+    return res.json({ imageUrl });
   } catch (err) {
     console.error('🔥 Lỗi AI render:', err);
-    res.status(500).json({ message: 'Lỗi khi render ảnh' });
+    res.status(500).json({ message: 'Lỗi server khi gọi AI' });
   }
 });
 
 module.exports = router;
+    
