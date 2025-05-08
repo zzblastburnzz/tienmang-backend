@@ -32,6 +32,7 @@ app.use('/tuvi', tuviRoutes);
 app.use('/worlds', worldRoutes);
 app.use('/factions', factionRoutes);
 app.use('/sociallink', socialLinkRoutes);
+app.use('/ai', require('./routes/ai.route'));
 
 // Kết nối MongoDB
 mongoose.connect(process.env.MONGO_URI)

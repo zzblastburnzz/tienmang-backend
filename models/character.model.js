@@ -71,6 +71,14 @@ const characterSchema = new mongoose.Schema({
     farmOwner: { type: Boolean, default: false },
   }
 
+  avatar_full: { type: String, default: '' },
+  images: [
+    {
+      url: String,
+      createdAt: { type: Date, default: Date.now }
+    }
+  ]
+
 }, { timestamps: true });
 
 module.exports = mongoose.model('Character', characterSchema);
