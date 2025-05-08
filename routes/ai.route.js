@@ -1,7 +1,7 @@
 
 const express = require('express');
 const router = express.Router();
-const authenticate = require('../middlewares/authenticate');
+const authenticate = require('../middlewares/authMiddleware');
 const Character = require('../models/character.model');
 const { callAiRenderImage } = require('../services/ai.service');
 
