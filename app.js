@@ -18,7 +18,7 @@ const chatRoutes = require('./routes/chat.route');
 const storyRoutes = require('./routes/story.route');
 const feedRoutes = require('./routes/feed.route');
 const tuviRoutes = require('./routes/tuvi.route');
-const worldRoutes = require('./routes/world.route');
+const worldRoutes = require('./src/world/world.route');
 const factionRoutes = require('./routes/faction.route');
 const socialLinkRoutes = require('./routes/sociallink.route');
 
