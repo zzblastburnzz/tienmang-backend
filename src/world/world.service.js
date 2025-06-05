@@ -6,7 +6,7 @@ const {
   INITIAL_REGEN_RATES,
   MIN_REGEN_RATES,
   STABILITY_THRESHOLDS
-} = require('./base-values');
+} = require('./constants/base-values');
 
 class WorldService {
   calculateElementRegenRate(element, worldAge) {
