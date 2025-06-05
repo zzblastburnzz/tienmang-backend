@@ -1,24 +1,15 @@
-import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
-import { 
-  ELEMENT_TYPES, 
-  ELEMENT_HALF_LIVES, 
-  INITIAL_ELEMENTS, 
-  INITIAL_REGEN_RATES, 
+const WorldState = require('./world-state.model');
+const {
+  ELEMENT_TYPES,
+  ELEMENT_HALF_LIVES,
+  INITIAL_ELEMENTS,
+  INITIAL_REGEN_RATES,
   MIN_REGEN_RATES,
-  STABILITY_THRESHOLDS,
-  ElementType
-} from '../constants/base-values';
-import { WorldState, WorldStateDocument } from './world-state.schema';
+  STABILITY_THRESHOLDS
+} = require('./base-values');
 
-@Injectable()
-export class WorldService {
-  constructor(
-    @InjectModel(WorldState.name) private worldModel: Model<WorldStateDocument>,
-  ) {}
-
-  private calculateElementRegenRate(element: ElementType, worldAge: number): number {
+class WorldService {
+  calculateElementRegenRate(element, worldAge) {
     const halfLife = ELEMENT_HALF_LIVES[element];
     const initialRate = INITIAL_REGEN_RATES[element];
     const minRate = MIN_REGEN_RATES[element];
@@ -30,15 +21,15 @@ export class WorldService {
   }
 
   async initializeWorld() {
-    const exists = await this.worldModel.findOne();
+    const exists = await WorldState.findOne();
     if (exists) throw new Error('World already initialized');
 
-    const initialHistory = ELEMENT_TYPES.reduce((acc, element) => {
-      acc[element] = [INITIAL_ELEMENTS[element]];
-      return acc;
-    }, {} as Record<ElementType, number[]>);
+    const initialHistory = {};
+    ELEMENT_TYPES.forEach(element => {
+      initialHistory[element] = [INITIAL_ELEMENTS[element]];
+    });
 
-    const world = new this.worldModel({
+    const world = new WorldState({
       totalElements: { ...INITIAL_ELEMENTS },
       availableElements: { ...INITIAL_ELEMENTS },
       totalLinhKhi: INITIAL_ELEMENTS.Linh,
@@ -51,7 +42,7 @@ export class WorldService {
   }
 
   async tickWorld() {
-    const world = await this.worldModel.findOne();
+    const world = await WorldState.findOne();
     if (!world) throw new Error('World not initialized');
 
     world.age += 1;
@@ -102,11 +93,11 @@ export class WorldService {
   }
 
   async getWorldState() {
-    return this.worldModel.findOne();
+    return WorldState.findOne();
   }
 
-  async getElementDecayInfo(element: ElementType) {
-    const world = await this.worldModel.findOne();
+  async getElementDecayInfo(element) {
+    const world = await WorldState.findOne();
     if (!world) throw new Error('World not initialized');
 
     const currentRate = this.calculateElementRegenRate(element, world.age);
@@ -124,21 +115,23 @@ export class WorldService {
     };
   }
 
-  async consumeElements(elements: Partial<Record<ElementType, number>>) {
-    const world = await this.worldModel.findOne();
+  async consumeElements(elements) {
+    const world = await WorldState.findOne();
     if (!world) throw new Error('World not initialized');
 
     for (const [element, amount] of Object.entries(elements)) {
-      if (world.availableElements[element as ElementType] < (amount || 0)) {
+      if (world.availableElements[element] < (amount || 0)) {
         throw new Error(`Not enough ${element} element`);
       }
     }
 
     for (const [element, amount] of Object.entries(elements)) {
-      world.availableElements[element as ElementType] -= amount || 0;
+      world.availableElements[element] -= amount || 0;
     }
 
     world.totalEntities += 1;
     return world.save();
   }
 }
+
+module.exports = new WorldService();
