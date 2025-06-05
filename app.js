@@ -21,6 +21,7 @@ const tuviRoutes = require('./routes/tuvi.route');
 const worldRoutes = require('./src/world/world.route');
 const factionRoutes = require('./routes/faction.route');
 const socialLinkRoutes = require('./routes/sociallink.route');
+const entityRoutes = require('.src/entity/entity.route');
 
 app.use('/auth', authRoutes);
 app.use('/character', characterRoutes);
@@ -32,6 +33,7 @@ app.use('/tuvi', tuviRoutes);
 app.use('/worlds', worldRoutes);
 app.use('/factions', factionRoutes);
 app.use('/sociallink', socialLinkRoutes);
+app.use('/entities', entityRoutes);
 
 // Kết nối MongoDB
 mongoose.connect(process.env.MONGO_URI)
