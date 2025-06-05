@@ -1,5 +1,5 @@
-const WorldState = require('../models/world-state.model');
-const { INITIAL_ELEMENTS, INITIAL_LINH_KHI, GAS_REGEN_RATE } = require('../constants/base-values');
+const WorldState = require('./world-state.model');
+const { INITIAL_ELEMENTS, INITIAL_LINH_KHI, GAS_REGEN_RATE } = require('./constants/base-values');
 
 exports.initWorld = async (req, res) => {
   const exists = await WorldState.findOne();
