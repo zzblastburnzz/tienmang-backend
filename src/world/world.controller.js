@@ -1,5 +1,5 @@
 const worldService = require('./world.service');
-const { ELEMENT_TYPES } = require('./base-values');
+const { ELEMENT_TYPES } = require('./constants/base-values');
 
 module.exports = {
   async initializeWorld(req, res) {
