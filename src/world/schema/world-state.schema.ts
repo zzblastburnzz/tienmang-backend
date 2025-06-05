@@ -1,18 +1,19 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
+import { ElementType, ELEMENT_TYPES, STABILITY_THRESHOLDS } from '../constants/base-values';
 
 export type WorldStateDocument = WorldState & Document;
 
-@Schema()
+@Schema({ timestamps: true })
 export class WorldState {
   @Prop({ default: 0 })
-  age: number; // Tuổi vũ trụ (tick count)
+  age: number;
 
   @Prop({ type: Object, required: true })
-  totalElements: Record<string, number>; // Tổng lượng khí khởi tạo (bất biến)
+  totalElements: Record<ElementType, number>;
 
   @Prop({ type: Object, required: true })
-  availableElements: Record<string, number>; // Khí còn khả dụng
+  availableElements: Record<ElementType, number>;
 
   @Prop({ required: true })
   totalLinhKhi: number;
@@ -20,8 +21,27 @@ export class WorldState {
   @Prop({ required: true })
   availableLinhKhi: number;
 
-  @Prop({ default: 100 })
-  stability: number; // Độ ổn định vũ trụ
+  @Prop({ default: STABILITY_THRESHOLDS.MAX })
+  stability: number;
+
+  @Prop({ default: 'stable' })
+  stabilityStatus: 'critical' | 'unstable' | 'stable';
+
+  @Prop({ type: Object })
+  elementHistory: Record<ElementType, number[]>;
+
+  @Prop({ type: Object })
+  regenHistory: Record<string, Array<{
+    tick: number;
+    rate: number;
+    amount: number;
+  }>>;
+
+  @Prop({ type: Object })
+  elementHalfLives: Record<ElementType, number>;
+
+  @Prop({ default: 0 })
+  totalEntities: number;
 }
 
 export const WorldStateSchema = SchemaFactory.createForClass(WorldState);

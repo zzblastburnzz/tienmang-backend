@@ -1,16 +1,23 @@
 const express = require('express');
 const router = express.Router();
 const worldController = require('./world.controller');
-const entityTick = require('../entity/entity-tick.service'); // 👈 Thêm phần này
+const entityTick = require('../entity/entity-tick.service');
 
-router.post('/init', worldController.initWorld);
+router.post('/init', worldController.initializeWorld);
 
-// Tick thế giới + entity cùng lúc
 router.post('/tick', async (req, res) => {
-  await worldController.tickWorld(req, res);
-  await entityTick.tickEntities();
+  try {
+    const worldState = await worldController.tickWorld();
+    await entityTick.tickEntities();
+    res.json(worldState);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 });
 
 router.get('/state', worldController.getWorldState);
+
+router.get('/element-decay/:element', worldController.getElementDecayInfo);
+router.get('/decay-rates', worldController.getAllDecayRates);
 
 module.exports = router;
